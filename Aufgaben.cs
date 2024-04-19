@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 /// <summary>
-/// Die Klasse Aufgaben mit den Properties und den einzelnen Methoden
+/// Die Klasse Aufgaben mit den Properties, dem Konstruktor und den einzelnen Methoden
 /// </summary>
 public class Aufgaben
 {
@@ -41,13 +41,13 @@ public class Aufgaben
         } while (prioritaet != "hoch" && prioritaet != "mittel" && prioritaet != "niedrig");
 
         // Ermitteln der ID der Aufgabe
-        int ID = ListeAufgaben.Count > 0 ? ListeAufgaben[ListeAufgaben.Count - 1].ID + 1 : 1;
+        int idNeueAufgabe = ListeAufgaben.Count > 0 ? ListeAufgaben[ListeAufgaben.Count -1].ID + 1: 1;
         // Hinzufügen der neuen Aufgabe in die Liste
-        ListeAufgaben.Add(new Aufgaben(ID, beschreibung, prioritaet));
+        ListeAufgaben.Add(new Aufgaben(idNeueAufgabe, beschreibung, prioritaet));
 
         Console.WriteLine("Aufgabe erfolgreich hinzugefügt");
         Console.WriteLine("Drücken Sie eine Taste, um zurück ins Hauptmenü zu gelangen.");
-        Console.ReadLine();
+        Console.ReadKey();
     }
 
     /// <summary>
@@ -69,7 +69,7 @@ public class Aufgaben
         }
 
         Console.WriteLine("Drücken Sie eine Taste, um zurück ins Hauptmenü zu gelangen.");
-        Console.ReadLine();
+        Console.ReadKey();
     }
 
     /// <summary>
@@ -88,43 +88,43 @@ public class Aufgaben
 
         // Abfrage der ID, die bearbeitet werden soll
         Console.Write("Geben Sie die ID der zu bearbeitenden Aufgabe ein: ");
-        int IDBearbeiten = int.Parse(Console.ReadLine());
+        int idBearbeiten = int.Parse(Console.ReadLine());
 
         // Suchen der ID in der Liste
-        var AufgabeBearbeiten = ListeAufgaben.Find(aufgabe => aufgabe.ID == IDBearbeiten);
+        var aufgabeBearbeiten = ListeAufgaben.Find(aufgabe => aufgabe.ID == idBearbeiten);
 
-        if (AufgabeBearbeiten == null)
+        if (aufgabeBearbeiten == null)
         {
             Console.WriteLine("Aufgabe nicht gefunden");
         }
         else
         {
-            Console.WriteLine($"Aktuelle Beschreibung: {AufgabeBearbeiten.Beschreibung}");
+            Console.WriteLine($"Aktuelle Beschreibung: {aufgabeBearbeiten.Beschreibung}");
             // Neue Beschreibung eingeben
             Console.Write("Geben Sie die neue Beschreibung ein: ");
-            string NeueBeschreibung = Console.ReadLine();
+            string neueBeschreibung = Console.ReadLine();
 
-            string NeuePrioritaet;
+            string neuePrioritaet;
             // Überprüfen, ob bei Priorität hoch, mittel oder niedrig eingetragen wurde
             do
             {
-                Console.WriteLine($"Aktuelle Priorität: {AufgabeBearbeiten.Prioritaet}");
+                Console.WriteLine($"Aktuelle Priorität: {aufgabeBearbeiten.Prioritaet}");
                 Console.Write("Geben Sie die neue Priorität ein (hoch, mittel, niedrig): ");
-                NeuePrioritaet = Console.ReadLine().ToLower();
+                neuePrioritaet = Console.ReadLine().ToLower();
 
-                if (NeuePrioritaet != "hoch" && NeuePrioritaet != "mittel" && NeuePrioritaet != "niedrig")
+                if (neuePrioritaet != "hoch" && neuePrioritaet != "mittel" && neuePrioritaet != "niedrig")
                 {
                     Console.WriteLine("Bitte nur hoch, mittel oder niedrig eingeben");
                 }
-            } while (NeuePrioritaet != "hoch" && NeuePrioritaet != "mittel" && NeuePrioritaet != "niedrig");
+            } while (neuePrioritaet != "hoch" && neuePrioritaet != "mittel" && neuePrioritaet != "niedrig");
 
             // Schreiben der aktualisierten Werte in die Liste
-            ListeAufgaben[ListeAufgaben.IndexOf(AufgabeBearbeiten)] = new Aufgaben(IDBearbeiten, NeueBeschreibung, NeuePrioritaet);
+            ListeAufgaben[ListeAufgaben.IndexOf(aufgabeBearbeiten)] = new Aufgaben(idBearbeiten, neueBeschreibung, neuePrioritaet);
             Console.WriteLine("Aufgabe erfolgreich aktualisiert");
         }
 
         Console.WriteLine("Drücken Sie eine Taste, um zurück ins Hauptmenü zu gelangen.");
-        Console.ReadLine();
+        Console.ReadKey();
     }
 
     /// <summary>
@@ -143,24 +143,24 @@ public class Aufgaben
 
         // Abfrage der ID zum Löschen
         Console.Write("Geben Sie die ID der zu löschenden Aufgabe ein: ");
-        int IDLoeschen = int.Parse(Console.ReadLine());
+        int idLoeschen = int.Parse(Console.ReadLine());
 
         // Suchen der ID in der Liste
-        var AufgabeLoeschen = ListeAufgaben.Find(aufgabe => aufgabe.ID == IDLoeschen);
+        var aufgabeLoeschen = ListeAufgaben.Find(aufgabe => aufgabe.ID == idLoeschen);
 
-        if (AufgabeLoeschen == null)
+        if (aufgabeLoeschen == null)
         {
             Console.WriteLine("Aufgabe nicht gefunden");
         }
         else
         {
             // Löschen des Listeneintrags
-            ListeAufgaben.Remove(AufgabeLoeschen);
+            ListeAufgaben.Remove(aufgabeLoeschen);
             Console.WriteLine("Aufgabe erfolgreich gelöscht");
         }
 
         Console.WriteLine("Drücken Sie eine Taste, um zurück ins Hauptmenü zu gelangen.");
-        Console.ReadLine();
+        Console.ReadKey();
     }
 
     /// <summary>
@@ -183,7 +183,7 @@ public class Aufgaben
         }
 
         Console.WriteLine("Drücken Sie eine Taste, um zurück ins Hauptmenü zu gelangen.");
-        Console.ReadLine();
+        Console.ReadKey();
     }
 
     /// <summary>
@@ -207,6 +207,6 @@ public class Aufgaben
         }
 
         Console.WriteLine("Drücken Sie eine Taste, um zurück ins Hauptmenü zu gelangen.");
-        Console.ReadLine();
+        Console.ReadKey();
     }
 }

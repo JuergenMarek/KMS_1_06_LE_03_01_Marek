@@ -1,21 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 
-
 /// <summary>
 /// Die Hauptklasse des Programms, hier wird nur das Hauptmenü erzeugt
 /// </summary>
 class Program
 {
     /// <summary>
-    /// Hier wird die Liste erstellt und mit Anfagswerten befüllt
+    /// Hier wird die Liste erstellt und mit Anfangswerten befüllt
     /// </summary>
     static List<Aufgaben> ListeAufgaben = new List<Aufgaben>()
     {
-        new Aufgaben(1, "Aufstehen", "hoch"),
-        new Aufgaben(2, "Zähne putzen", "hoch"),
-        new Aufgaben(3, "Zeitung lesen", "mittel"),
-        new Aufgaben(4, "Frühstücken", "niedrig")
+        //new Aufgaben(1, "Aufstehen", "hoch"),
+        //new Aufgaben(2, "Zähne putzen", "hoch"),
+        //new Aufgaben(3, "Zeitung lesen", "mittel"),
+        //new Aufgaben(4, "Frühstücken", "niedrig")
     };
 
     /// <summary>
@@ -67,7 +66,7 @@ class Program
                 default:
                     Console.WriteLine("Bitte nur gültige Menüpunkte auswählen");
                     Console.WriteLine("Drücken Sie eine Taste, um zurück ins Hauptmenü zu gelangen.");
-                    Console.ReadLine();
+                    Console.ReadKey();
                     break;
             }
         }
